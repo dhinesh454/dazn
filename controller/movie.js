@@ -39,7 +39,7 @@ const deleteMovie = async(req,res,next) => {
     try {
         const user = await Movie.findById(movieId);
         if(!user){
-            return res.status(404).json({message:'Movie not found tryagain',success:false})
+            return res.status(401).json({message:'Movie not found tryagain',success:false})
         }
         await Movie.deleteOne({_id:movieId});
         res.sendStatus(200);
@@ -78,7 +78,7 @@ const updateMovie = async (req, res , next) => {
             { new: true } 
         );
       if (!updatedMovie) {
-        return res.status(404).json({ message: 'Movie not found' });
+        return res.status(401).json({ message: 'Movie not found' });
       }
       res.status(201).json({updatedMovie,message:'Movie Updated Successfully'});
 

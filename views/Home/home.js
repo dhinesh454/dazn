@@ -176,19 +176,11 @@ function removeMovielist(id){
 }
 
 
-async function updateMovie(e){
-    try {
-        const res = await axios.put(`http://localhost:3000/movies/${id}`,{headers:{'Authorization':token}})
-    } catch (error) {
-        
-    }
-}
 
 
 
 async function getAllmovies(){
     try {
-        console.log(token);
         const res = await axios.get('http://localhost:3000/movies',{headers:{'Authorization':token}});
          for(let i in res.data.allMovies){
             shownMovielist(res.data.allMovies[i])

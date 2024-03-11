@@ -1,0 +1,142 @@
+1. User Management
+1.1 Signup API
+       Endpoint: POST /user/signup
+
+Description: Creates a new user account.
+Request Body:
+       name (string, required): Name of the user.
+       email (string, required): Email address of the user.
+       password (string, required): Password for the user account.
+        role (string, optional): Role of the user (admin or user).if reg as admin role is admin orelse role is user
+Response:
+     status 201: User successfully created.
+     status 500: Internal server error.
+
+
+
+
+1.2 Login API
+    Endpoint: POST /user/login
+
+
+Description: Authenticates a user and generates a JWT token for further access.
+
+Request Body:
+       email (string, required): Email address of the user.
+       password (string, required): Password for the user account.
+Response:
+      status 202: Successful login. Returns JWT token.
+      status 404: Unauthorized (invalid credentials).
+      status 500: Internal server error.
+
+
+
+
+2. Movie Management
+
+
+2.1 Add Movie
+
+Endpoint: POST /movies
+
+Description: Adds a new movie to the database.
+
+Request Body:
+     title (string, required): Title of the movie.
+     genre (string, required): Genre of the movie.
+     rating (number, required): Rating of the movie.
+     streamingLink (string, required): Streaming link for the movie.
+     Authorization: JWT token in the request headers.
+
+Response:
+     status 201: Movie successfully added.
+     status 400: Bad request.
+     status 404: Unauthorized (user is not an admin).
+     status 500: Internal server error
+
+
+
+
+2.2 Edit Movie
+
+
+Endpoint: PUT /movies/:id
+
+Description: Edits an existing movie in the database.
+
+Request Parameters:
+     id (string, required): ID of the movie to be edited.
+Request Body: (Same as Add Movie)
+Authorization: JWT token in the request headers.
+
+Response:
+    status 201: Movie successfully updated.
+    status 400: Bad request.
+    status 404: Unauthorized (user is not an admin).
+    status 401: Movie not found.
+    status 500: Internal server error.
+
+
+
+2.3 Search Movie
+
+
+Endpoint: GET /search?q={query}
+
+
+Description: Searches for movies based on the provided query.
+
+Request Parameters:
+q (string, required): Search query.
+Authorization: JWT token in the request headers.
+Response:
+     status 200: Successful search. Returns matching movies.
+     status 400: Bad request.
+     status 500: Internal server error.
+
+
+
+
+
+2.4 Get Movies
+
+
+Endpoint: GET /movies
+
+
+Description: Retrieves all movies from the database.
+Authorization: JWT token in the request headers.
+
+Response:
+    status 200: Successful retrieval. Returns all movies.
+    status 500: Internal server error.
+
+
+2.5 Delete Movie
+
+Endpoint: DELETE /movies/:id
+
+Description: Deletes a movie from the database.
+
+Request Parameters:
+      id (string, required): ID of the movie to be deleted.
+Authorization: JWT token in the request headers.
+
+Response:
+     status 200: Movie successfully deleted.
+     status 404: Unauthorized (user is not an admin).
+     status 401: Movie not found.
+     status 500: Internal server error.
+
+
+
+
+Endpoints:-
+-  `POST /user/signup
+-   `POST /user/login
+- `GET /movies`: List all the movies in the lobby
+- `GET /search?q={query}`: Search for a movie by title or genre
+- `POST /movies`: Add a new movie to the lobby (requires "admin" role)
+- `PUT /movies/:id`: Update an existing movie's information (title, genre, rating, or streaming link)
+(requires "admin" role)
+- `DELETE /movies/:id`: Delete a movie from the lobby (requires "admin" role)
