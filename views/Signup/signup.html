@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+   <!-- Icons -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+   <link rel="stylesheet" href="../Login/login.css">
+</head>
+<body>
+    <div class="header">
+        <h1>MovieBuff</h1>
+        <div class="header_action">
+             <ul class="navbar">
+                 <li style="cursor: pointer;" onclick="adminRegister(event)">AdminRegistration</a></li>
+             </ul>
+        </div>
+    </div>
+     
+   
+    <div class="container">
+        <div class="form" >
+            <span class="title">Registartion</span>
+
+            <form>
+                
+                <div class="inputfield">
+                    <i class="uil uil-user"></i>
+                    <input type="text" name="name" id="nameid" placeholder="Enter your name" required>
+
+                </div>
+                
+                <div class="inputfield">
+                    <i class="uil uil-envelope-alt"></i>
+                    <input type="text" name="email" id="emailid" placeholder="Enter your email" required>
+
+                </div>
+
+                <div class="inputfield">
+                    <i class="uil uil-phone"></i>
+                    <input type="phonenumber" name="phone" id="phoneid" placeholder="Enter your phonenumber" required>
+                   
+                </div>
+                
+                <div class="inputfield">
+                    <i class="uil uil-lock"></i>
+                    <input type="password" name="password" id="passid" placeholder="Enter your password" required>
+                   
+                </div>
+
+                
+
+                <div class="inputfield button" id="userButton">
+                    <input onclick="newuserRegister(event)" type="button" value="Signup Now">
+                </div>
+
+                <div class="inputfield button" id="adminButton" style="display: none;">
+                    <input type="button" onclick="adminuserRegister(event)" value="Register As Admin">
+                </div>
+
+            </form>
+
+
+            <div class="login-signup">
+                <span class="text">Already a User?</span>
+                <a href="../Login/login.html">Login Now</a>
+            </div>
+
+     
+        </div>
+
+    </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

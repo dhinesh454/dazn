@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="header">
+        <h1>MovieBuff</h1>
+        <div class="header_action">
+             <ul class="navbar">
+                 <li style="cursor: pointer;" onclick="Logout(event)">Logout</a></li>
+             </ul>
+        </div>
+    </div>
+    
+    <div id="form" style="display: none;">
+        
+        <form class="form_lists">
+            <div class="form_lists">
+                <div class="form_list">
+                    <label>Title</label>
+                    <input type="text" name="title" id="titleid" required>
+                </div>
+    
+                <div class="form_list">
+                    <label>Genre</label>
+                    <input type="text" name="genre" id="genreid" required>
+                </div>
+    
+                <div class="form_list">
+                    <label>Rating(1-5)</label>
+                    <input type="number" name="rating" id="ratingid" min="1" max="5" required>
+                </div>
+    
+                <div class="form_list">
+                    <label>streamingLink</label>
+                    <input type="text" name="streamingLink" id="streamingLinkid" required>
+                </div>
+    
+                <div class="form_list_action">
+                    <button class="addButton"  id="addButton" onclick="addmovies(event)">AddMovies</button>
+                    <button class="updateButton" id="updateButton" style="visibility: hidden;">updateMovie</button>
+                    <button class="cancelButton" id="cancelButton" onclick="cancelEvent(event)">Cancel</button>
+                </div>
+            </div>
+            </form>
+    </div>
+
+    <div class="addbutton" id="addbutton">
+        <button onclick="shownForm(event)">AddMovies</button>
+    </div>
+    
+
+    <div class="container">
+        <div id="search_bar" class="search">
+            <input type="text" id="search">
+        </div>
+        <ul id="ul_lists"></ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./home.js"></script>
+
+</body>
+</html> 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddMovies</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="header">
+        <h1>MovieBuff</h1>
+        <div class="header_action">
+             <ul class="navbar">
+                 <li><a href="./home.html">Home</a></li>
+                 <li><a href="../Login/login.html" onclick="logoutUser(e)">Logout</a></li>
+             </ul>
+        </div>
+
+    </div>
+
+    
+        <form class="form_lists" onsubmit="addmovies(event)">
+        <div class="form_lists">
+            <div class="form_list">
+                <label>Title</label>
+                <input type="text" name="title" id="titleid" required>
+            </div>
+
+            <div class="form_list">
+                <label>Genre</label>
+                <input type="text" name="genre" id="genreid" required>
+            </div>
+
+            <div class="form_list">
+                <label>Rating(1-5)</label>
+                <input type="number" name="rating" id="ratingid" min="1" max="5" required>
+            </div>
+
+            <div class="form_list">
+                <label>streamingLink</label>
+                <input type="text" name="streamingLink" id="streamingLinkid" required>
+            </div>
+
+            <div class="form_list_action">
+                <button class="addButton" type="submit">AddMovies</button>
+                <button class="updateButton" onclick="updateMovie(event)" style="visibility: hidden;">updateMovie</button>
+            </div>
+        </div>
+        </form>
+   
+
+    <script src="./form.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   
+</body>
+</html>
