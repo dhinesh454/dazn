@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -20,11 +21,15 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/user',userRoutes);
 app.use(movieRoutes);
+app.use(express.static(path.join(__dirname,'views')));
 
 
+///homePage when server starts
+app.use('/',(req,res,next)=>{
+    res.redirect('/Index/index.html');
+});
 
-
-mongoose.connect('mongodb+srv://dhina:pLcT3NJWZoxfFi3L@cluster0.dnrghh5.mongodb.net/DAZN?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(process.env.MONGODB_MONGOOSE_URL)
 .then((res)=>{
     app.listen(3000);
     console.log('connected!....')

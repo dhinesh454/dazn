@@ -27,7 +27,6 @@ function cancelEvent(e){
 
 async function addmovies(event){
     event.preventDefault();
-
     try {
     
        const title=document.getElementById('titleid').value;

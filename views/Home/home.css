@@ -137,3 +137,14 @@
   border-radius: 5px;
   border: none;
 }
+
+.search_bar{
+  display: flex;
+
+}
+
+.search{
+  color: chocolate;
+  font-size: x-large;
+  font-weight: 600;
+}
