@@ -75,13 +75,15 @@ window.addEventListener('DOMContentLoaded',async()=>{
     try {
         console.log(token);
         const res = await axios.get('http://localhost:3000/movies',{headers:{'Authorization':token}});
-         for(let i in res.data.allMovies){
+        
+        for(let i in res.data.allMovies){
             shownMovielist(res.data.allMovies[i])
         }
     } catch (error) {
         shownError(error);
     }
 })
+
 
 
 
